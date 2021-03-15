@@ -1,10 +1,12 @@
 package main
 
-import "echo-gorm-docker/routes"
-
-// "github.com/labstack/echo"
+import (
+	"echo-gorm-docker/config"
+	"echo-gorm-docker/routes"
+)
 
 func main() {
+	config.Init()
 	e := routes.Init()
 	e.Logger.Fatal(e.Start(":8080"))
 }
